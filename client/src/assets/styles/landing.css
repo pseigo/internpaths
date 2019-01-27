@@ -1,0 +1,15 @@
+.landing-hero {
+    background-image: url('../images/landing-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.map-config {
+    border-radius: 5px;
+}
+
+.landing-content-wrapper {
+    margin-top: 50px;
+}

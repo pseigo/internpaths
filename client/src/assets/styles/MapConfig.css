@@ -1,12 +1,12 @@
 .map-config {
-    width: 40%;
+    width: 100%;
     background-color: #f4f4f4;
     padding: 0px;
 }
 
 .map-config-form {
     max-width: 100%;
-    padding: 15px;
+    padding: 15px 10px 10px 10px;
 }
 
 .map-config-form-forgot {
