@@ -1,0 +1,115 @@
+import React, { Component } from 'react';
+import { withGoogleMap, GoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps';
+import { compose } from "recompose";
+import { Drawer } from 'antd';
+
+const GoogleMapReact = compose(
+  withScriptjs,withGoogleMap)(props => {
+    return(
+  <GoogleMap
+    defaultCenter = {{lat: 49.262218,
+      lng: -123.245260}}
+    defaultZoom = {15}
+    onClick={props.onMapClick}
+  >
+  {props.markers.map(marker =>{
+    const onMarkerClick = props.onMarkerClick.bind(this, marker)
+          return(
+            <Marker
+              key={marker._id}
+              onClick={ onMarkerClick }
+              position={{lat:marker.lat, lng:marker.lng }}
+              label={marker.company_name}
+            >
+            {
+              props.selectedMarker === marker && 
+              <InfoWindow>
+              <div>
+                  <h3>{marker.company_name}</h3>
+                  <p>{marker.description}</p>
+                  <p>{marker.company_url}</p>
+                  <p>{marker.date_applied}</p>
+                  <p>{marker.date_posted}</p>
+                  <p>{marker.location}</p>
+                  <p>{marker.email}</p>
+                  <p>{marker.phone}</p>
+                  <p>{marker.job_title}</p>
+                  <p>{marker.listing_url}</p>
+                  <p>{marker.stage}</p>
+              </div>
+              </InfoWindow>}
+            
+            </Marker>
+            
+          )
+        })} 
+  </GoogleMap>)
+});
+
+class Maps extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedMarker: false,
+    }
+  }
+
+  onMarkerOver = (marker, e) => {
+    this.setState({
+      selectedMarker: marker,
+    });
+  }
+
+  onMapOver = (props) => {
+      this.setState({
+        selectedMarker: false,
+      });
+    
+  }
+ 
+  render() {
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: window.innerHeight-138, width: '100%' }}>
+        <GoogleMapReact
+          selectedMarker={this.state.selectedMarker}
+          markers={this.props.markers}
+          onMapClick={this.onMapOver}
+          onMarkerClick={this.onMarkerOver}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzlL-ahnHzJ5HG4MD8IoC1y2kETuhvajA&v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+        <Drawer
+        title="Jobs"
+          placement="right"
+          closable={false}
+          visible={true}
+          mask={false}
+          zIndex={1}
+        >
+          {this.props.markers.map((marker, index) => {
+            return(
+              <div key={index}>
+                  <h3>{marker.company_name}</h3>
+                  <p>{marker.description}</p>
+                  <p>{marker.company_url}</p>
+                  <p>{marker.date_applied}</p>
+                  <p>{marker.date_posted}</p>
+                  <p>{marker.location}</p>
+                  <p>{marker.email}</p>
+                  <p>{marker.phone}</p>
+                  <p>{marker.job_title}</p>
+                  <p>{marker.listing_url}</p>
+                  <p>{marker.stage}</p>
+              </div>
+            )
+          })}
+        </Drawer>
+      </div>
+    );
+  }
+}
+ 
+export default Maps;

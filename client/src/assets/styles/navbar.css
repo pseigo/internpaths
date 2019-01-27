@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.logo {
+  color: white;
+  font-size: 1.35em;
+  font-weight: bold;
+}
