@@ -109,7 +109,6 @@ class JobsList extends Component {
         const state = this.state;
         return (
             <div>
-                <Navbar />
                 <div className="control-bar components-table-demo-control-bar">
                     <Form layout="inline">
                         <FormItem label="Bordered">
@@ -148,7 +147,6 @@ class JobsList extends Component {
                     </Form>
                 </div>
                 <Table {...this.state} columns={columns} dataSource={state.hasData ? this.state.data : null} />
-                <Footer />
             </div>
         );
     }

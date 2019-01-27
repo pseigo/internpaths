@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import FetchAPI from './components/FetchAPI';
-import APIHandler from './components/APIHandler';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import FetchAPI from './FetchAPI';
 import 'antd/dist/antd.css';
-import './index.css';
+import Map from './Map'
 
-class App extends Component {
+class MapController extends Component {
   constructor(props) {
     super(props);
 
@@ -33,20 +30,18 @@ class App extends Component {
     };
     return (
       <div>
-        <Navbar />
-        <FetchAPI 
+        <FetchAPI
           endpoint={this.state.api}
           filter={filter}
           render={data =>
-          <APIHandler
-            data={data}
-          />}
+          <Map
+              markers={data}
+          />
+          }
         />
-        
-        <Footer />
       </div>
     );
   }
 }
 
-export default App;
+export default MapController;

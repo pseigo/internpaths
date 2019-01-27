@@ -4,12 +4,13 @@ import LandingHero from './LandingHero';
 import LandingContent from './LandingContent';
 import '../assets/styles/landing.css';
 import Footer from './Footer';
-import App from '../App';
+import App from './MapController';
+import Dashboard from './Dashboard';
 
 class Landing extends Component {
     constructor(props){
         super(props);
-    
+
         this.state={
           map: false,
           job_title: '',
@@ -36,7 +37,7 @@ class Landing extends Component {
             return (
                 <div className="body">
                     <Navbar />
-                    <LandingHero 
+                    <LandingHero
                         handleSubmit={this.handleSubmit}
                     />
                     <LandingContent />
@@ -46,12 +47,12 @@ class Landing extends Component {
         }
         else if(this.state.map) {
             return(
-                <App
-                    filter={this.state.job_title}
+                <Dashboard
+                    job_title={this.state.job_title}
                 />
             )
         }
-       
+
     }
 }
 

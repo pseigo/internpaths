@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps';
 import { compose } from "recompose";
-import { Popover, Drawer, notification, Button } from 'antd';
+import { Popover, Drawer, notification, Button, Row, Col, Card } from 'antd';
 
 
 const GoogleMapReact = compose(
@@ -105,7 +105,7 @@ class Maps extends Component {
     });
     const args = {
       message: 'Success!',
-      description: 'Successfully applied to the job. You will receive an email confirmation soon!',
+      description: 'Successfully applied to the job. You will receive an email conformation soon!',
       duration: 1.5,
     };
     notification.open(args);
@@ -146,7 +146,50 @@ class Maps extends Component {
           containerElement={<div style={{ height: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
-        <Drawer
+        <Card title="Thing">
+        {this.props.markers.map((marker, index) => {
+            return(
+              <div key={index}>
+                  <h3>{marker.company_name}</h3>
+                  <p>{marker.description}</p>
+                  <p>{marker.company_url}</p>
+                  <p>{marker.date_applied}</p>
+                  <p>{marker.date_posted}</p>
+                  <p>{marker.location}</p>
+                  <p>{marker.email}</p>
+                  <p>{marker.phone}</p>
+                  <p>{marker.job_title}</p>
+                  <p>{marker.listing_url}</p>
+                  <p>{marker.stage}</p>
+              </div>
+            )
+          })}
+        </Card>
+
+        {/* <Row>
+          <Col span={18}>
+            <GoogleMapReact
+              hide={this.hide}
+              handleHoverChange={this.handleHoverChange}
+              handleClickChange={this.handleClickChange}
+              selectedMarker={this.state.selectedMarker}
+              markers={this.props.markers}
+              onMapClick={this.onMapOver}
+              hovered={this.state.hovered}
+              clicked={this.state.clicked}
+              visible={this.state.visible}
+              success={this.state.success}
+              handleVisibleChange={this.handleVisibleChange}
+              onMarkerClick={this.onMarkerOver}
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzlL-ahnHzJ5HG4MD8IoC1y2kETuhvajA&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `100%` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+            />
+          </Col>
+          <Col span={6}></Col>
+        </Row> */}
+        {/* <Drawer
         title="Jobs"
           placement="right"
           closable={false}
@@ -171,7 +214,7 @@ class Maps extends Component {
               </div>
             )
           })}
-        </Drawer>
+        </Drawer> */}
       </div>
     );
   }
