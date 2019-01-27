@@ -13,10 +13,6 @@ class App extends Component {
     fetch('/');
   }
 
-  componentDidMount() {
-    this.connecToServer();
-  }
-
   render() {
     return (
       <div className="App">
@@ -32,6 +28,7 @@ class App extends Component {
             rel="noopener noreferrer"
           >
             Learn React and Node
+            {this.connecToServer()}
           </a>
         </header>
       </div>
