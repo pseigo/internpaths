@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Icon, Checkbox, Button } from 'antd';
-import "antd/dist/antd.css"; // TODO: merge to index.js
+import { Form } from 'antd';
 import MapConfigForm from './MapConfigForm';
 import '../assets/styles/mapconfig.css'
 
