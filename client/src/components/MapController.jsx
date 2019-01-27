@@ -12,8 +12,8 @@ class MapController extends Component {
     }
   }
   // componentDidMount() {
-  //   axios.post('/api/create', {
-  //     job_title: 'Software Engineer',
+  //   axios.post('/api/get', {
+  //     job_title: 'Software Developer',
   //   })
   //   .then(function(res) {
   //     console.log(res);

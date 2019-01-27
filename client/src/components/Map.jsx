@@ -146,25 +146,6 @@ class Maps extends Component {
           containerElement={<div style={{ height: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
-        <Card title="Thing">
-        {this.props.markers.map((marker, index) => {
-            return(
-              <div key={index}>
-                  <h3>{marker.company_name}</h3>
-                  <p>{marker.description}</p>
-                  <p>{marker.company_url}</p>
-                  <p>{marker.date_applied}</p>
-                  <p>{marker.date_posted}</p>
-                  <p>{marker.location}</p>
-                  <p>{marker.email}</p>
-                  <p>{marker.phone}</p>
-                  <p>{marker.job_title}</p>
-                  <p>{marker.listing_url}</p>
-                  <p>{marker.stage}</p>
-              </div>
-            )
-          })}
-        </Card>
 
         {/* <Row>
           <Col span={18}>
