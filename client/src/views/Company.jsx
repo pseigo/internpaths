@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Map from '../components/Map';
 
 class Company extends Component {
     constructor(props) {
@@ -11,9 +12,10 @@ class Company extends Component {
         let data = this.props.data;
         let menu = [];
         Object.keys(data).map((index) => {
+            return(
             menu.push(
-                <div>
-                    <h3>{data[index].company}</h3>
+                <div key={index}>
+                    <h3>{data[index].company_name}</h3>
                     <p>{data[index].description}</p>
                     <p>{data[index].company_url}</p>
                     <p>{data[index].date_applied}</p>
@@ -25,7 +27,7 @@ class Company extends Component {
                     <p>{data[index].listing_url}</p>
                     <p>{data[index].stage}</p>
                 </div>
-            )
+            ))
         })
         return menu;
     }
@@ -33,6 +35,9 @@ class Company extends Component {
     render() {
         return (  
             <div>
+                <Map
+                    markers={this.props.data}
+                />
                 {this.renderPage()}
             </div>
         );

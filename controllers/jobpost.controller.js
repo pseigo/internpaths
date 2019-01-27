@@ -365,7 +365,147 @@ exports.create = function (req, res) {
         )     
 
         console.log("test");
-        jobpost.save(function (err) {
+        jobpost1.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost2.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost3.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost4.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost5.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost6.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost7.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost8.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost9.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost10.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost11.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost12.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost13.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost14.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost15.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost16.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost17.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost18.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost19.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost20.save(function (err) {
+            if (err) {
+                console(err);
+                return next(err);
+            }
+            console.log('Product Created successfully')
+        })
+        jobpost21.save(function (err) {
             if (err) {
                 console(err);
                 return next(err);

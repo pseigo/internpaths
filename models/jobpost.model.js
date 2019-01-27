@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 let JostpostSchema = new Schema({
   company_name: String,
   description: String,
+  lat: Number,
+  lng: Number,
   job_title: String,
   location: String,
   company_url: String,

@@ -18,22 +18,22 @@ class App extends Component {
       filter: {},
     }
   }
-  componentDidMount() {
-    axios.post('/api/create', {
-      job_title: 'Software Engineer',
-    })
-    .then(function(res) {
-      console.log(res);
-    })
-    .catch(function(err) {
-      console.log(err);
-    })
-    axios.post('/api/create')
-  }
+  // componentDidMount() {
+  //   axios.post('/api/create', {
+  //     job_title: 'Software Engineer',
+  //   })
+  //   .then(function(res) {
+  //     console.log(res);
+  //   })
+  //   .catch(function(err) {
+  //     console.log(err);
+  //   })
+  //   axios.post('/api/create')
+  // }
 
   render() {
     let filter = {
-      job_title: 'Software Engineer',
+      job_title: 'Software Developer',
     }
     return (
       <div>
@@ -46,7 +46,7 @@ class App extends Component {
             data={data}
           />}
         />
-        <Maps />
+        
         <Footer />
       </div>
     );
