@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import '../assets/styles/navbar.css';
 
 const { Header } = Layout;
-const companyName = 'interpaths';
+const companyName = 'internpaths';
 
 class Navbar extends Component {
     render() {
