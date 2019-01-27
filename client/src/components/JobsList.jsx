@@ -28,6 +28,11 @@ const columns = [{
     key: 'date_posted',
     width: 150,
 }, {
+    title: 'Application URL',
+    dataIndex: 'company_url',
+    key: 'company_url',
+    width: 150
+}, {
     title: 'Date Applied',
     dataIndex: 'date_applied',
     key: 'date_applied',
@@ -37,13 +42,13 @@ const columns = [{
     dataIndex: 'stage',
     key: 'stage',
     width: 150,
-    render: (text, record) => (
-        <div>
-            <span>
-                <Badge count={109} style={{ backgroundColor: '#52c41a' }} />
-            </span>
-        </div>
-    ),
+    // render: (text, record) => (
+    //     <div>
+    //         <span>
+    //             <Badge count={"Pending Application"} style={{ backgroundColor: '#52c41a' }} />
+    //         </span>
+    //     </div>
+    // ),
 }];
 
 // const data = [{

@@ -1,0 +1,4 @@
+.mapSidebar {
+    max-height: 721px !important;
+    overflow-y: scroll;
+}
