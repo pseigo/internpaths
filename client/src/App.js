@@ -9,14 +9,6 @@ class App extends Component {
     this.connecToServer = this.connecToServer.bind(this);
   }
 
-  connecToServer() {
-    fetch('/');
-  }
-
-  componentDidMount() {
-    this.connecToServer();
-  }
-
   render() {
     return (
       <div className="App">
