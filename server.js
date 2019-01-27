@@ -3,6 +3,7 @@ const app = express();
 const logger = require('morgan');
 //const axios = require('axios');
 const jobpost = require('./controllers/jobpost.controller');
+const joblist = require('./controllers/jobslist.controller');
 const port = process.env.PORT || 5000;
 let mongoDB = process.env.MONGODB_URI || "mongodb://temp:nwHacks2019@ds213715.mlab.com:13715/heroku_l0wkkk3t";
 var mongoose = require('mongoose');
@@ -21,6 +22,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //    //res.json('huh')
 // });
 app.post('/api/get', jobpost.get);
+app.post('/api/retrieve', joblist.retrieve);
 app.post('/api/create', jobpost.create);
 
 //Start server

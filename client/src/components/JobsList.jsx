@@ -1,29 +1,42 @@
 import React, { Component } from 'react';
 import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import { Badge } from 'antd';
 import '../assets/styles/jobslist.css';
 
 const FormItem = Form.Item;
 
 const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    title: 'Company Name',
+    dataIndex: 'company_name',
+    key: 'company_name',
     width: 150,
     render: text => <a href="javascript:;">{text}</a>,
 }, {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-    width: 70,
+    title: 'Job Title',
+    dataIndex: 'job_title',
+    key: 'job_title',
+    width: 150,
 }, {
     title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
+    dataIndex: 'location',
+    key: 'location',
 }, {
-    title: 'Action',
-    key: 'action',
-    width: 360,
+    title: 'Date Posted',
+    dataIndex: 'date_posted',
+    key: 'date_posted',
+    width: 150,
+}, {
+    title: 'Date Applied',
+    dataIndex: 'date_applied',
+    key: 'date_applied',
+    width: 150,
+}, {
+    title: 'Status',
+    dataIndex: 'stage',
+    key: 'stage',
+    width: 150,
     render: (text, record) => (
         <div>
             <span>
@@ -33,16 +46,15 @@ const columns = [{
     ),
 }];
 
-const data = [];
-for (let i = 1; i <= 10; i++) {
-    data.push({
-        key: i,
-        name: 'John Brown',
-        age: `${i}2`,
-        address: `New York No. ${i} Lake Park`,
-        description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
-    });
-}
+// const data = [{
+//     key: 1,
+//     company_name: 'Amazon',
+//     job_title: 'Software developer',
+//     location: '4580 W 10th Ave, Vancouver, BC V6R 4C5',
+//     date_posted: '10-01-2019',
+//     date_applied: '18-01-2019',
+//     description: 'My name is John Brown, I am 2 years old, living in New York No. ${i} Lake Park.',
+// }];
 
 const expandedRowRender = record => <p>{record.description}</p>;
 const scroll = { y: 240 };
@@ -57,7 +69,9 @@ class JobsList extends Component {
         rowSelection: {},
         scroll: undefined,
         hasData: true,
+        data: this.props.data,
     }
+
 
     handleToggle = prop => (enable) => {
         this.setState({ [prop]: enable });
@@ -91,10 +105,12 @@ class JobsList extends Component {
     }
 
     render() {
+        console.log(this.state.data);
         const state = this.state;
         return (
             <div>
-                <div className="components-table-demo-control-bar">
+                <Navbar />
+                <div className="control-bar components-table-demo-control-bar">
                     <Form layout="inline">
                         <FormItem label="Bordered">
                             <Switch checked={state.bordered} onChange={this.handleToggle('bordered')} />
@@ -131,7 +147,8 @@ class JobsList extends Component {
                         </FormItem>
                     </Form>
                 </div>
-                <Table {...this.state} columns={columns} dataSource={state.hasData ? data : null} />
+                <Table {...this.state} columns={columns} dataSource={state.hasData ? this.state.data : null} />
+                <Footer />
             </div>
         );
     }
