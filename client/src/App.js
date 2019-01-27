@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import FetchAPI from './components/FetchAPI';
-import Maps from './components/Map';
-import Company from './views/Company';
+import APIHandler from './components/APIHandler';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import 'antd/dist/antd.css';
@@ -42,7 +40,7 @@ class App extends Component {
           endpoint={this.state.api}
           filter={filter}
           render={data =>
-          <Company
+          <APIHandler
             data={data}
           />}
         />

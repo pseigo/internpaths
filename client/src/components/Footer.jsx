@@ -9,7 +9,7 @@ class FooterBar extends Component {
     render() {
         return (
             <Layout className="layout">
-                <Footer className="footer">
+                <Footer className="footer" >
                     <p className="copyright">&copy; {copyRight}</p>
                 </Footer>
             </Layout>

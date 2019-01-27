@@ -1,83 +1,85 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import markerPNG from '../assets/marker.png';
+import { withGoogleMap, GoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps';
+import { compose } from "recompose";
 
-const AnyReactComponent = ({  text, img_src }) => <div>{text}<img src={img_src} alt="marker" style={{width:24, height:31}} /></div>;
- 
+const GoogleMapReact = compose(
+  withScriptjs,withGoogleMap)(props => {
+    return(
+  <GoogleMap
+    defaultCenter = {{lat: 49.262218,
+      lng: -123.245260}}
+    defaultZoom = {15}
+  >
+  {props.markers.map(marker =>{
+    const onMarkerClick = props.onMarkerClick.bind(this, marker)
+    const onMapClick = props.onMapClick.bind(this, marker)
+          return(
+            <Marker
+            key={marker._id}
+              onMouseOver={ onMarkerClick }
+              onMouseOut={ onMapClick }
+              position={{lat:marker.lat, lng:marker.lng }}
+              label={marker.company_name}
+            >
+            {props.selectedMarker === marker && 
+            <InfoWindow
+            >
+            <div>
+                <h3>{marker.company_name}</h3>
+                <p>{marker.description}</p>
+                <p>{marker.company_url}</p>
+                <p>{marker.date_applied}</p>
+                <p>{marker.date_posted}</p>
+                <p>{marker.location}</p>
+                <p>{marker.email}</p>
+                <p>{marker.phone}</p>
+                <p>{marker.job_title}</p>
+                <p>{marker.listing_url}</p>
+                <p>{marker.stage}</p>
+            </div></InfoWindow>}
+  }
+            </Marker>
+            
+          )
+        })} 
+  </GoogleMap>)
+});
+
 class Maps extends Component {
   constructor(props){
     super(props);
     this.state = {
-          showingInfoWindow: false,
-          activeMarker: {},
-          selectedPlace: {}
-        }
-        // binding this to event-handler functions
-        this.onMarkerClick = this.onMarkerClick.bind(this);
-    this.onMarkerClick = this.onMarkerClick.bind(this);
-  }
-
-
-  static defaultProps = {
-    center: {
-      lat: 49.260798,
-      lng: -123.245934
-    },
-    zoom: 11
-  };
-  
-  componentDidMount(){
-    // or you can set markers list somewhere else
-    // please also set your correct lat & lng
-    // you may only use 1 image for all markers, if then, remove the img_src attribute ^^
-    this.setState({
-      markers: [{lat: 49.260776, lng: -123.245936, img_src: markerPNG},
-                {lat: 49.260475, lng: -123.251193, img_src: markerPNG},
-                {lat: 49.267106, lng: -123.242674,  img_src: markerPNG}],
-    });
-  }
-
-  onMarkerClick = (props, marker, e) => {
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-    console.log("worked");
-  }
-
-  onMapClick = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
+      selectedMarker: false,
     }
+  }
+
+  onMarkerOver = (marker, e) => {
+    this.setState({
+      selectedMarker: marker,
+    });
+  }
+
+  onMapOver = (props) => {
+      this.setState({
+        selectedMarker: false,
+      });
+    
   }
  
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: window.innerHeight-64, width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyAzlL-ahnHzJ5HG4MD8IoC1y2kETuhvajA'}}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-          onClick = { this.onMapClick }
-        >
-          {this.props.markers.map((marker, i) =>{
-              return(
-                <AnyReactComponent
-                  key={i}
-                  onClick = { this.onMarkerClick }
-                  lat={marker.lat}
-                  lng={marker.lng}
-                  text={marker.company_name}
-                  img_src={markerPNG}
-                />
-              )
-            })}      
-        </GoogleMapReact>
+          selectedMarker={this.state.selectedMarker}
+          markers={this.props.markers}
+          onMapClick={this.onMapOver}
+          onMarkerClick={this.onMarkerOver}
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzlL-ahnHzJ5HG4MD8IoC1y2kETuhvajA&v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
       </div>
     );
   }
