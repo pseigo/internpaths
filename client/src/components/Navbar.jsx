@@ -10,7 +10,7 @@ class Navbar extends Component {
         return (
             <Layout className="layout">
                 <Header className="header">
-                    <div className="logo">{companyName}</div>
+                    <div className="logo"><a href=".">{companyName}</a></div>
                     <Menu
                         theme="dark"
                         mode="horizontal"

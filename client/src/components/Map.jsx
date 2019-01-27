@@ -23,7 +23,7 @@ const GoogleMapReact = compose(
               label={marker.company_name}
             >
             {
-              props.selectedMarker === marker && 
+              props.selectedMarker === marker &&
               <InfoWindow>
               <div>
                   <h3>{marker.company_name}</h3>
@@ -64,11 +64,11 @@ const GoogleMapReact = compose(
                   }
               </div>
               </InfoWindow>}
-            
+
             </Marker>
-            
+
           )
-        })} 
+        })}
   </GoogleMap>)
 });
 
@@ -101,11 +101,11 @@ class Maps extends Component {
     this.setState({
       clicked: visible,
       hovered: false,
-      success: true, 
+      success: true,
     });
     const args = {
       message: 'Success!',
-      description: 'Successfully applied to the job. You will receive an email conformation soon!',
+      description: 'Successfully applied to the job. You will receive an email confirmation soon!',
       duration: 1.5,
     };
     notification.open(args);
@@ -121,9 +121,9 @@ class Maps extends Component {
       this.setState({
         selectedMarker: false,
       });
-    
+
   }
- 
+
   render() {
     return (
       // Important! Always set the container height explicitly
@@ -176,5 +176,5 @@ class Maps extends Component {
     );
   }
 }
- 
+
 export default Maps;
