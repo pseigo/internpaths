@@ -44,7 +44,7 @@ const GoogleMapReact = compose(
                     onVisibleChange={props.handleHoverChange}
                   >
                   <Popover
-                    content={(<a onClick={props.hide}>Close</a>)}
+                    content={(<a href onClick={props.hide}>Close</a>)}
                     title="Successfully applied!"
                     trigger="click"
                     visible={props.clicked}
