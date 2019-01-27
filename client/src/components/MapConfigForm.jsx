@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Input, Icon, Button } from 'antd';
 
+
 class MapConfigForm extends Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -39,15 +32,15 @@ class MapConfigForm extends Component {
     };
 
     return (
-      <Form onSubmit={this.handleSubmit} hideRequiredMark="true" className="map-config-form">
+      <Form onSubmit={(e) => this.props.handleSubmit(e, this.props.form)} hideRequiredMark={true} className="map-config-form">
         <Form.Item
           {...formItemLayout}
           label="Job title"
         >
-          {getFieldDecorator('jobTitle', {
+          {getFieldDecorator('job_title', {
             rules: [{ required: true, message: 'You must input a job title.' }],
           })(
-            <Input prefix={<Icon type="profile" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Junior Software Engineer" />
+            <Input prefix={<Icon type="profile" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Software Developer" />
           )}
         </Form.Item>
         <Form.Item

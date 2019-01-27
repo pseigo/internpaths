@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form } from 'antd';
 import MapConfigForm from './MapConfigForm';
-import '../assets/styles/mapconfig.css'
+import '../assets/styles/mapconfig.css';
 
 class MapConfig extends Component {
   render() {
@@ -9,7 +9,9 @@ class MapConfig extends Component {
 
     return (
       <div className="map-config">
-        <WrappedMapConfigForm />
+        <WrappedMapConfigForm 
+          handleSubmit={this.props.handleSubmit}
+        />
       </div>
     );
   }

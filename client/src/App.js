@@ -12,7 +12,6 @@ class App extends Component {
 
     this.state = {
       api: '/api/get',
-      filter: {},
     }
   }
   // componentDidMount() {
@@ -30,8 +29,8 @@ class App extends Component {
 
   render() {
     let filter = {
-      job_title: 'Software Developer',
-    }
+      job_title: this.props.filter
+    };
     return (
       <div>
         <Navbar />

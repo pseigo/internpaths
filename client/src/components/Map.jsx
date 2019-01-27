@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps';
 import { compose } from "recompose";
+import { Drawer } from 'antd';
 
 const GoogleMapReact = compose(
   withScriptjs,withGoogleMap)(props => {
@@ -9,15 +10,14 @@ const GoogleMapReact = compose(
     defaultCenter = {{lat: 49.262218,
       lng: -123.245260}}
     defaultZoom = {15}
+    onClick={props.onMapClick}
   >
   {props.markers.map(marker =>{
     const onMarkerClick = props.onMarkerClick.bind(this, marker)
-    const onMapClick = props.onMapClick.bind(this, marker)
           return(
             <Marker
               key={marker._id}
-              onMouseOver={ onMarkerClick }
-              onMouseOut={ onMapClick }
+              onClick={ onMarkerClick }
               position={{lat:marker.lat, lng:marker.lng }}
               label={marker.company_name}
             >
@@ -81,6 +81,32 @@ class Maps extends Component {
           containerElement={<div style={{ height: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
+        <Drawer
+        title="Jobs"
+          placement="right"
+          closable={false}
+          visible={true}
+          mask={false}
+          zIndex={1}
+        >
+          {this.props.markers.map((marker, index) => {
+            return(
+              <div key={index}>
+                  <h3>{marker.company_name}</h3>
+                  <p>{marker.description}</p>
+                  <p>{marker.company_url}</p>
+                  <p>{marker.date_applied}</p>
+                  <p>{marker.date_posted}</p>
+                  <p>{marker.location}</p>
+                  <p>{marker.email}</p>
+                  <p>{marker.phone}</p>
+                  <p>{marker.job_title}</p>
+                  <p>{marker.listing_url}</p>
+                  <p>{marker.stage}</p>
+              </div>
+            )
+          })}
+        </Drawer>
       </div>
     );
   }
