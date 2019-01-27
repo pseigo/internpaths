@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Maps from './components/Map';
+import Navbar from './components/Navbar';
 import axios from 'axios';
+import 'antd/dist/antd.css';
+import './index.css';
 import './App.css';
 
 class App extends Component {
@@ -15,7 +18,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Maps />>
+        <Navbar/>
+        <Maps/>
       </div>
     );
   }
