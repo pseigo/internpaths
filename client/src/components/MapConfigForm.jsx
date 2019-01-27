@@ -14,20 +14,37 @@ class MapConfigForm extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
 
+    const formItemLayout = {
+      labelCol: {
+        md: { span: 24 },
+        lg: { span: 5 },
+      },
+      wrapperCol: {
+        md: { span: 24 },
+        lg: { span: 19 },
+      },
+    };
+
     return (
-      <Form onSubmit={this.handleSubmit} className="map-config-form">
-        <Form.Item>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+      <Form onSubmit={this.handleSubmit} hideRequiredMark="true" className="map-config-form">
+        <Form.Item
+          {...formItemLayout}
+          label="Job title"
+        >
+          {getFieldDecorator('jobTitle', {
+            rules: [{ required: true, message: 'You must input a job title.' }],
           })(
-            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            <Input prefix={<Icon type="profile" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Junior Software Engineer" />
           )}
         </Form.Item>
-        <Form.Item>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
+        <Form.Item
+          {...formItemLayout}
+          label="Location"
+        >
+          {getFieldDecorator('location', {
+            rules: [{ required: true, message: 'You must choose a location.' }],
           })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+            <Input prefix={<Icon type="pushpin" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Vancouver, BC" />
           )}
         </Form.Item>
         <Form.Item>
@@ -35,13 +52,10 @@ class MapConfigForm extends Component {
             valuePropName: 'checked',
             initialValue: true,
           })(
-            <Checkbox>Remember me</Checkbox>
+            <Button type="primary" icon="search" htmlType="submit" className="map-config-form-button">
+              Search!
+            </Button>
           )}
-          <a className="map-config-form-forgot" href="">Forgot password</a>
-          <Button type="primary" htmlType="submit" className="map-config-form-button">
-            Log in
-          </Button>
-          Or <a href="">register now!</a>
         </Form.Item>
       </Form>
     );
