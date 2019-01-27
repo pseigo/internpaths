@@ -35,7 +35,7 @@ const GoogleMapReact = compose(
                   <p>{marker.email}</p>
                   <p>{marker.phone}</p>
                   <p>{marker.job_title}</p>
-                  {marker.company_name === "ICA Projects Inc" && !props.success?
+                  {marker.stage === "N/A" && !props.success ?
                   <Popover
                     content="Compatible form found! Would you like to easy-apply?"
                     title="Easy apply"
