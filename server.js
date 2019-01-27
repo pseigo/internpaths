@@ -5,14 +5,17 @@ const port = process.env.PORT || 5000;
 app.use(logger('dev'));
 app.use(express.json());
 
-const googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyAzlL-ahnHzJ5HG4MD8IoC1y2kETuhvajA'
+//Route setup
+app.post('/api/glassdoor', (req, res) => {
+    // Geocode an address.
+   //console.log("request abody" + JSON.stringify(req.body))
+   //res.json('huh')
 });
 
-//Route setup
-app.post('/api/map', (req, res) => {
+app.post('/api/indeed', (req, res) => {
     // Geocode an address.
-    res.json('AIzaSyAzlL-ahnHzJ5HG4MD8IoC1y2kETuhvajA')
+   //console.log("request abody" + JSON.stringify(req.body))
+   //res.json('huh')
 });
 
 //Start server
