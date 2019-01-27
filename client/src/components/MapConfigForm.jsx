@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Icon, Checkbox, Button } from 'antd';
+import { Form, Input, Icon, Button } from 'antd';
 
 class MapConfigForm extends Component {
   handleSubmit = (e) => {
@@ -17,12 +17,25 @@ class MapConfigForm extends Component {
     const formItemLayout = {
       labelCol: {
         md: { span: 24 },
-        lg: { span: 5 },
+        lg: { span: 4 },
       },
       wrapperCol: {
         md: { span: 24 },
-        lg: { span: 19 },
+        lg: { span: 20 },
       },
+    };
+
+    const tailFormItemLayout = {
+      wrapperCol: {
+        md: {
+          span: 24,
+          offset: 0,
+        },
+        lg: {
+          span: 19,
+          offset: 5,
+        }
+      }
     };
 
     return (
@@ -47,15 +60,11 @@ class MapConfigForm extends Component {
             <Input prefix={<Icon type="pushpin" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Vancouver, BC" />
           )}
         </Form.Item>
-        <Form.Item>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(
+        <Form.Item
+        {...tailFormItemLayout}>
             <Button type="primary" icon="search" htmlType="submit" className="map-config-form-button">
               Search!
             </Button>
-          )}
         </Form.Item>
       </Form>
     );
