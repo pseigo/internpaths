@@ -1,6 +1,10 @@
 .footer {
     text-align: center;
     background-color: #011528 !important;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .copyright {

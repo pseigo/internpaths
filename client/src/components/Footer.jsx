@@ -3,7 +3,7 @@ import { Layout} from 'antd';
 import '../assets/styles/footer.css';
 
 const { Footer } = Layout;
-const copyRight = 'Created by Goodfellas nwhacks team 2019';
+const copyRight = 'Created by Goodfellas Team - nwHacks 2019';
 
 class FooterBar extends Component {
     render() {

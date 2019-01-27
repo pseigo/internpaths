@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import LandingHero from './LandingHero';
-import '../assets/styles/landing.css'
 import LandingContent from './LandingContent';
+import '../assets/styles/landing.css';
+import Footer from './Footer';
 
 class Landing extends Component {
     render() {
@@ -11,6 +12,7 @@ class Landing extends Component {
                 <Navbar />
                 <LandingHero />
                 <LandingContent />
+                <Footer />
             </div>
         );
     }
