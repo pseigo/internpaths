@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import FetchAPI from './components/FetchAPI';
 import Maps from './components/Map';
 import Company from './views/Company';
@@ -12,23 +13,23 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state={
+    this.state = {
       api: '/api/get',
       filter: {},
     }
   }
-  // componentDidMount() {
-  //   axios.post('/api/get', {
-  //     job_title: 'Software Engineer',
-  //   })
-  //   .then(function(res) {
-  //     console.log(res);
-  //   })
-  //   .catch(function(err) {
-  //     console.log(err);
-  //   })
-  //   axios.post('/api/create')
-  // }
+  componentDidMount() {
+    axios.post('/api/create', {
+      job_title: 'Software Engineer',
+    })
+    .then(function(res) {
+      console.log(res);
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+    axios.post('/api/create')
+  }
 
   render() {
     let filter = {
