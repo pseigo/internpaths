@@ -3,6 +3,7 @@ import FetchAPI from './components/FetchAPI';
 import Maps from './components/Map';
 import Company from './views/Company';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import 'antd/dist/antd.css';
 import './index.css';
 import './App.css';
@@ -35,7 +36,7 @@ class App extends Component {
     }
     return (
       <div>
-        <Navbar/>
+        <Navbar />
         <FetchAPI 
           endpoint={this.state.api}
           filter={filter}
@@ -45,6 +46,7 @@ class App extends Component {
           />}
         />
         <Maps />
+        <Footer />
       </div>
     );
   }
