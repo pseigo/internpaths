@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form } from 'antd';
 import MapConfigForm from './MapConfigForm';
-import '../assets/styles/mapconfig.css';
+import '../assets/styles/mapconfigform.css';
 
 class MapConfig extends Component {
   render() {
