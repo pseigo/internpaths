@@ -15,29 +15,30 @@ const GoogleMapReact = compose(
     const onMapClick = props.onMapClick.bind(this, marker)
           return(
             <Marker
-            key={marker._id}
+              key={marker._id}
               onMouseOver={ onMarkerClick }
               onMouseOut={ onMapClick }
               position={{lat:marker.lat, lng:marker.lng }}
               label={marker.company_name}
             >
-            {props.selectedMarker === marker && 
-            <InfoWindow
-            >
-            <div>
-                <h3>{marker.company_name}</h3>
-                <p>{marker.description}</p>
-                <p>{marker.company_url}</p>
-                <p>{marker.date_applied}</p>
-                <p>{marker.date_posted}</p>
-                <p>{marker.location}</p>
-                <p>{marker.email}</p>
-                <p>{marker.phone}</p>
-                <p>{marker.job_title}</p>
-                <p>{marker.listing_url}</p>
-                <p>{marker.stage}</p>
-            </div></InfoWindow>}
-  }
+            {
+              props.selectedMarker === marker && 
+              <InfoWindow>
+              <div>
+                  <h3>{marker.company_name}</h3>
+                  <p>{marker.description}</p>
+                  <p>{marker.company_url}</p>
+                  <p>{marker.date_applied}</p>
+                  <p>{marker.date_posted}</p>
+                  <p>{marker.location}</p>
+                  <p>{marker.email}</p>
+                  <p>{marker.phone}</p>
+                  <p>{marker.job_title}</p>
+                  <p>{marker.listing_url}</p>
+                  <p>{marker.stage}</p>
+              </div>
+              </InfoWindow>}
+            
             </Marker>
             
           )
@@ -69,7 +70,7 @@ class Maps extends Component {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: window.innerHeight-64, width: '100%' }}>
+      <div style={{ height: window.innerHeight-138, width: '100%' }}>
         <GoogleMapReact
           selectedMarker={this.state.selectedMarker}
           markers={this.props.markers}

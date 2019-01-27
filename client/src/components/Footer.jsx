@@ -8,7 +8,7 @@ const copyRight = 'Created by Goodfellas Team - nwHacks 2019';
 class FooterBar extends Component {
     render() {
         return (
-            <Layout className="layout">
+            <Layout className="layout" style={{ lineHeight: '12px' }}>
                 <Footer className="footer" >
                     <p className="copyright">&copy; {copyRight}</p>
                 </Footer>
