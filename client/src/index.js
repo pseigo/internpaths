@@ -4,7 +4,6 @@ import './index.css';
 import "antd/dist/antd.css";
 import Landing from './components/Landing';
 import * as serviceWorker from './serviceWorker';
-import Dashboard from './components/Dashboard';
 
 ReactDOM.render(<Landing />, document.getElementById('root'));
 

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import { Badge } from 'antd';
+import { Table, Switch, Radio, Form } from 'antd';
 import '../assets/styles/jobslist.css';
 
 const FormItem = Form.Item;
@@ -12,7 +9,7 @@ const columns = [{
     dataIndex: 'company_name',
     key: 'company_name',
     width: 150,
-    render: text => <a href="javascript:;">{text}</a>,
+    render: text => <a href="JavaScript:void(0)">{text}</a>,
 }, {
     title: 'Job Title',
     dataIndex: 'job_title',

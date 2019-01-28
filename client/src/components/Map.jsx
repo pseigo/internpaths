@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps';
 import { compose } from "recompose";
-import { Popover, Drawer, notification, Button, Row, Col, Card } from 'antd';
+import { Popover, notification, Button } from 'antd';
 
 
 const GoogleMapReact = compose(

@@ -4,7 +4,6 @@ import LandingHero from './LandingHero';
 import LandingContent from './LandingContent';
 import '../assets/styles/landing.css';
 import Footer from './Footer';
-import App from './MapController';
 import Dashboard from './Dashboard';
 
 class Landing extends Component {
