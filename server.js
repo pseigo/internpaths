@@ -5,7 +5,7 @@ const logger = require('morgan');
 const jobpost = require('./controllers/jobpost.controller');
 const joblist = require('./controllers/jobslist.controller');
 const port = process.env.PORT || 5000;
-let mongoDB = process.env.MONGODB_URI || "mongodb://temp:nwHacks2019@ds213715.mlab.com:13715/heroku_l0wkkk3t";
+let mongoDB = process.env.MONGODB_URI || "mongodb://localhost:27017/test";
 var mongoose = require('mongoose');
 app.use(logger('dev'));
 app.use(express.json());

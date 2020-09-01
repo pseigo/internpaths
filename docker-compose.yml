@@ -1,0 +1,15 @@
+# See https://docs.docker.com/compose/compose-file/
+version: '3.7'
+services:
+  mongo-db:
+    image: mongo:4.4.0
+    volumes:
+      - mongo-volume:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: development
+    ports:
+      - '27017-27019:27017-27019'
+
+volumes:
+  mongo-volume:
