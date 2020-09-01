@@ -4,8 +4,20 @@ This was a small project I did with three other attendees of the nwHacks 2019 ha
 
 ## Run
 
-```javascript
+```bash
+# Setup
+npm install
+cd ./client
+npm install
+cd ..
+
+# Run development server
+docker-compose up -d
 npm run dev
+
+# Shutdown
+# (ctrl-c to kill server)
+docker-compose down
 ```
 
 ## API usage
